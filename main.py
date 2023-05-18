@@ -108,7 +108,7 @@ while True:
 cap.release()
 
 files = []
-folder = args.input_folder
+folder = args.input_folder # video_frames
 # add a "/" to the end of the folder
 if not folder.endswith("/") and not folder.endswith("\\"):
     folder += "/"
@@ -141,4 +141,5 @@ while True:
         if i >= len(files):
             break
 
-output_video()
+if not args.no_save:
+    output_video()
