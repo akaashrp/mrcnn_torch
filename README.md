@@ -1,11 +1,6 @@
-# Mask-RCNN Implementation
-This is a PyTorch implementation of Mask-RCNN. It uses the webcam or an input video and displays the output or saves the video. See [usage](#usage) for more information.
-View the paper at [arxiv.org/abs/1703.06870v1](https://arxiv.org/abs/1703.06870v1) or the PyTorch model source code [pytorch.org/vision/stable/_modules/torchvision/models/detection/mask_rcnn.html](https://pytorch.org/vision/stable/_modules/torchvision/models/detection/mask_rcnn.html).
-## Example
-See this example of the 100m final on YouTube (which I ran through this code):
-[![100m World Record](http://img.youtube.com/vi/fRnFHRNIQRs/0.jpg)](http://www.youtube.com/watch?v=fRnFHRNIQRs "Mask-RCNN Implementation (100m World Record)")<br>
-And this is quite a famous frame from a video that I've run it through:
-![Example Image](example.jpg "Example")
+# Mask-RCNN PyTorch Implementation
+This is a PyTorch implementation of Mask-RCNN that was adapted from https://github.com/George-Ogden/Mask-RCNN. This implementation accepts a video input and outputs the video after performing segmentation on each frame.
+
 ## Setup
 ### pip
 `pip install -r requirements.txt`
@@ -24,7 +19,7 @@ usage: main.py [-h] [--grey-background] [--classes CLASSES [CLASSES ...]]
 Mask-RCNN (segmentation model) implementation in PyTorch
 
 positional arguments:
-  {image,folder,video,webcam}
+  {folder}
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -52,58 +47,21 @@ optional arguments:
   --box-thickness BOX_THICKNESS
                         thickness of boxes
 ```
-### Image
-```
-usage: main.py image [-h] --input-image INPUT_IMAGE [--save-path SAVE_PATH | --no-save]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --input-image INPUT_IMAGE, --input INPUT_IMAGE, -i INPUT_IMAGE
-                        input image
-  --save-path SAVE_PATH, --output SAVE_PATH, -o SAVE_PATH
-                        output save location
-  --no-save             do not save output image
-```
 ### Folder
 ```
-usage: main.py folder [-h] --input-folder INPUT_FOLDER [--output-folder OUTPUT_FOLDER | --no-save] [--extensions EXTENSIONS [EXTENSIONS ...]]
+usage: main.py folder [-h] --input-video INPUT_VIDEO --input-folder INPUT_FOLDER [--output-folder OUTPUT_FOLDER | --no-save] [--extensions EXTENSIONS [EXTENSIONS ...]]
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --input-folder INPUT_FOLDER, --input INPUT_FOLDER, -i INPUT_FOLDER
-                        input folder
-  --output-folder OUTPUT_FOLDER, --output OUTPUT_FOLDER, -o OUTPUT_FOLDER
-                        output save location
-  --no-save             do not save output images
-  --extensions EXTENSIONS [EXTENSIONS ...], -e EXTENSIONS [EXTENSIONS ...]
-                        image file extensions
-```
-### Video
-```
-usage: main.py video [-h] --input-video INPUT_VIDEO [--save-path SAVE_PATH | --no-save]
-
-optional arguments:
+arguments:
   -h, --help            show this help message and exit
   --input-video INPUT_VIDEO, --input INPUT_VIDEO, -i INPUT_VIDEO
                         input video
-  --save-path SAVE_PATH, --output SAVE_PATH, -o SAVE_PATH
+  --input-folder INPUT_FOLDER, --input INPUT_FOLDER, -i INPUT_FOLDER
+                        input folder containing video frames
+  --output-folder OUTPUT_FOLDER, --output OUTPUT_FOLDER, -o OUTPUT_FOLDER
                         output save location
   --no-save             do not save output video
-```
-### Webcam
-```
-usage: main.py webcam [-h] [--source SOURCE] [--save-path SAVE_PATH] [--output-fps OUTPUT_FPS] [--no-save]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --source SOURCE, --input SOURCE, -i SOURCE
-                        webcam number
-  --save-path SAVE_PATH, --output SAVE_PATH, -o SAVE_PATH
-                        output save location
-  --output-fps OUTPUT_FPS
-                        output fps for video
-  --no-save             do not save output video
+  --extensions EXTENSIONS [EXTENSIONS ...], -e EXTENSIONS [EXTENSIONS ...]
+                        image file extensions
 ```
 ## Classes
-For a list of classes, see [classes.txt](classes.txt). The model has been trained on the COCO dataset so there are 80 classes. **Note: the model outputs 91 classes - one is the background and 10 are `None`**
-# mrcnn_torch
+For a list of classes, see [classes.txt](classes.txt).
