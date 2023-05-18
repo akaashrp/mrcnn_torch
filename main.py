@@ -41,7 +41,7 @@ subparsers = parser.add_subparsers()
 
 folder = subparsers.add_parser("folder")
 output_group = folder.add_mutually_exclusive_group()
-folder.add_argument("--input-video")
+folder.add_argument("--input-video","--input","-i",default=".",required=True)
 folder.add_argument("--input-folder","--input","-i",default=".",required=True,help="input folder")
 output_group.add_argument("--output-folder","--output","-o",default="output/",help="output save location")
 output_group.add_argument("--no-save",action="store_true",help="do not save output images")
