@@ -1,5 +1,5 @@
-# Mask-RCNN PyTorch Implementation
-This is a PyTorch implementation of Mask-RCNN that was adapted from https://github.com/George-Ogden/Mask-RCNN. This implementation accepts a video input and outputs the video after performing segmentation on each frame.
+# Mask R-CNN PyTorch Implementation
+This is a PyTorch implementation of Mask R-CNN that was adapted from https://github.com/George-Ogden/Mask-RCNN. This implementation accepts a video input and outputs the video after performing segmentation on each frame.
 
 ## Setup
 ### pip
